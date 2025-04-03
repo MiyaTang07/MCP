@@ -119,7 +119,10 @@ class MCPClient {
         arguments: toolArgs
       })
       console.log('MCP server 的response is===》', result)
-
+      if (result.isError) {
+        console.log("Error calling tool: ", result.error);
+        return;
+      }
       toolResults.push(result)
       messages.push(message)
 

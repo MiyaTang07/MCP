@@ -104,6 +104,10 @@ class MCPClient {
                 arguments: toolArgs
             });
             console.log('MCP server 的response is===》', result);
+            if (result.isError) {
+                console.log("Error calling tool: ", result.error);
+                return;
+            }
             toolResults.push(result);
             messages.push(message);
             messages.push({
@@ -120,8 +124,8 @@ class MCPClient {
                     // max_tokens: 1000,
                     // stream: false
                 });
-                // console.log('chatResult====>', JSON.stringify(chatResult));
-                finalText.push(chatResult.choices[0].message.content);
+                console.log('chatResult====>', JSON.stringify(chatResult));
+                finalText.push(chatResult.choices[0].message);
             }
             catch (err) {
                 console.error('LLM response output error：', err);

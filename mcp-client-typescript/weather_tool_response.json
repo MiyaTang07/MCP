@@ -1,0 +1,33 @@
+{
+  "id": "0195f97736b1ec318108a331c9b2065b",
+  "object": "chat.completion",
+  "created": 1743647094,
+  "model": "Qwen/QwQ-32B",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "",
+        "reasoning_content": "好的，用户问的是深圳的天气，我需要用提供的工具来获取预报。首先，我得确定深圳对应的城市代码。根据之前的例子，比如101280601是深圳，所以应该用这个代码。检查一下参数要求，code需要是9位的字符串，符合条件。接下来，调用get-forecast函数，把code参数设为101280601。这样应该就能拿到深圳的天气数据了。确认无误后，生成对应的tool_call结构。\n",
+        "tool_calls": [
+          {
+            "id": "0195f97744bf17d8798a4af42fdd7085",
+            "type": "function",
+            "function": {
+              "name": "get-forecast",
+              "arguments": "{\"code\": \"101280601\"}"
+            }
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 226,
+    "completion_tokens": 140,
+    "total_tokens": 366
+  },
+  "system_fingerprint": ""
+}

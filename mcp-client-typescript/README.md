@@ -11,3 +11,11 @@
 ### Core
 > Client端有两个核心：1，创建LLM的连接 2、连接Servers
 ![alt text](image.png)
+
+### code流程
+```
+MCPClient = connectToServer -> chatLoop
+1. connectToServer = mcpClient -connects-> StdioClientTransport -> 即可得到"listTools"
+2. chatLoop中进行processQuery  
+processQuery = openaiLLM with (queryMessage and tools) -result1(tool api的实际参数获得)-> call MCP-Client的serve-tool -result2-> openaiLLM with "all messages" -> final result3
+```

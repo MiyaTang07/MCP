@@ -20,4 +20,8 @@ http://t.weather.itboy.net/api/weather/city/101010100
 ```
 npx @modelcontextprotocol/inspector node build/index.js
 ```
+### code流程
+```
+McpServer = StdioServerTransport（connect） +  tool（register）
+```
 
